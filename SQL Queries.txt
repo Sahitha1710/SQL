@@ -1,0 +1,60 @@
+mysql> CREATE TABLE Students (name VARCHAR(50),  age INT, roll_no INT);
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> INSERT INTO Students (name, age, roll_no) VALUES ('Rishika', 22, 101),
+    -> ('Divya', 21, 102),
+    ->  ('Sujitha', 22, 103),
+    -> ('Prasanna', 22, 104),
+    -> ('Prajwala', 21, 105),
+    ->  ('Sahitha', 22, 106),
+    ->  ('Sumaja', 21, 107),
+    ->  ('Roshini', 21, 108);
+Query OK, 8 rows affected (0.03 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Students;
++----------+------+---------+
+| name     | age  | roll_no |
++----------+------+---------+
+| Rishika  |   22 |     101 |
+| Divya    |   21 |     102 |
+| Sujitha  |   22 |     103 |
+| Prasanna |   22 |     104 |
+| Prajwala |   21 |     105 |
+| Sahitha  |   22 |     106 |
+| Sumaja   |   21 |     107 |
+| Roshini  |   21 |     108 |
++----------+------+---------+
+8 rows in set (0.01 sec)
+
+
+mysql> ALTER TABLE Students RENAME COLUMN age TO student_age;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE Students SET student_age = 23 WHERE roll_no = 103;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM Students;
++----------+-------------+---------+
+| name     | student_age | roll_no |
++----------+-------------+---------+
+| Rishika  |          22 |     101 |
+| Divya    |          21 |     102 |
+| Sujitha  |          23 |     103 |
+| Prasanna |          22 |     104 |
+| Prajwala |          21 |     105 |
+| Sahitha  |          22 |     106 |
+| Sumaja   |          21 |     107 |
+| Roshini  |          21 |     108 |
++----------+-------------+---------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS total_students FROM Students;
++----------------+
+| total_students |
++----------------+
+|              8 |
++----------------+
+1 row in set (0.02 sec)
